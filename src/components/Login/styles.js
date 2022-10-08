@@ -2,8 +2,6 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { darkTheme } from '../../styles/theme'
 
 export const GlobalStyle = createGlobalStyle`
-  
-
   body, html, #root {
     height: 100%;
   }
@@ -30,7 +28,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   max-width: 100%;
   padding: 11px 13px;
-  background: rgb(30, 30, 30);
+  background: ${darkTheme.bg2};
   color: ${darkTheme.text};
   margin-bottom: 0.9rem;
   border-radius: 4px;

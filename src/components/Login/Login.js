@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import { GlobalStyle, Wrapper, Form, Input, Button, Title } from './styles'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
+import HomePage from '../../pages/HomePage'
 
 function Login() {
   const [email, setEmail] = useState('')

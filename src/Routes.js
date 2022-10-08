@@ -1,13 +1,16 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
+import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 
 const Routes = () => {
   return (
     <Switch>
       <Route exact path='/home'>
-        <Layout></Layout>
+        <Layout>
+          <HomePage />
+        </Layout>
       </Route>
       <Route exact path='/duvidas'>
         <Layout>
