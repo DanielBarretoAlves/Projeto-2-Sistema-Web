@@ -1,13 +1,5 @@
-import styled, { keyframes, createGlobalStyle } from 'styled-components'
-
-const jump = keyframes`
-  from{
-    transform: translateY(0)
-  }
-  to{
-    transform: translateY(-3px)
-  }
-`
+import styled, { createGlobalStyle } from 'styled-components'
+import { darkTheme } from '../../styles/theme'
 
 export const GlobalStyle = createGlobalStyle`
   
@@ -38,8 +30,8 @@ export const Form = styled.form`
 export const Input = styled.input`
   max-width: 100%;
   padding: 11px 13px;
-  background: #f9f9fa;
-  color: #f03d4e;
+  background: rgb(30, 30, 30);
+  color: ${darkTheme.text};
   margin-bottom: 0.9rem;
   border-radius: 4px;
   outline: 0;
@@ -56,10 +48,10 @@ export const Input = styled.input`
 export const Button = styled.button`
   max-width: 100%;
   padding: 11px 13px;
-  color: rgb(253, 249, 243);
+  color: ${darkTheme.text};
   font-weight: 600;
   text-transform: uppercase;
-  background: #f03d4e;
+  background: ${darkTheme.bg3};
   border: none;
   border-radius: 3px;
   outline: 0;
@@ -67,15 +59,12 @@ export const Button = styled.button`
   margin-top: 0.6rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-out;
-  :hover {
-    background: rgb(200, 50, 70);
-    animation: ${jump} 0.2s ease-out forwards;
-  }
 `
 
 export const Title = styled.h2`
   font-weight: normal;
-  color: #2a2a29;
+  color: ${darkTheme.text};
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
   text-align: center;
+  padding-bottom: 3rem;
 `

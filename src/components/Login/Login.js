@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import { GlobalStyle, Wrapper, Form, Input, Button } from './styles'
+import { GlobalStyle, Wrapper, Form, Input, Button, Title } from './styles'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 
 function Login() {
@@ -12,6 +12,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log({ email, senha })
+    // TODO: Chamada para rota de auth da API.
     if (senha === '123') {
       history.push('/home')
     } else {
@@ -24,6 +25,7 @@ function Login() {
       <GlobalStyle />
       <Wrapper>
         <Form onSubmit={handleSubmit}>
+          <Title>Online Booster</Title>
           <Input
             type='email'
             name='email'

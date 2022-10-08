@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
-import Layout from './components/Layout/Layout'
 import Routes from './Routes'
 import { GlobalStyle } from './styles/globalStyles'
 import { darkTheme } from './styles/theme'
