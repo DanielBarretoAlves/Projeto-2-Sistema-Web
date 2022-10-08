@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
+import 'react-notifications/lib/notifications.css'
 
 export const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
@@ -12,4 +13,4 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         letter-spacing: .6px;
     }
-`;
+`

@@ -1,11 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import {
   SDivider,
   SLink,
   SLinkContainer,
   SLinkIcon,
   SLinkLabel,
-  SLinkNotification,
   SSidebar,
   SSidebarButton,
 } from './styles'
@@ -19,12 +18,10 @@ import {
   MdToday,
 } from 'react-icons/md'
 
-import { ThemeContext } from './../../App'
 import { useLocation } from 'react-router-dom'
 
 const Sidebar = () => {
-  const { setTheme, theme } = useContext(ThemeContext)
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(true)
   const { pathname } = useLocation()
 
   return (
@@ -37,17 +34,13 @@ const Sidebar = () => {
         </SSidebarButton>
       </>
 
-      {linksArray.map(({ icon, label, notification, to }) => (
+      {linksArray.map(({ icon, label, to }) => (
         <SLinkContainer key={label} isActive={pathname === to}>
           <SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
             <SLinkIcon>{icon}</SLinkIcon>
             {sidebarOpen && (
               <>
                 <SLinkLabel>{label}</SLinkLabel>
-                {/* if notifications are at 0 or null, do not display */}
-                {!!notification && (
-                  <SLinkNotification>{notification}</SLinkNotification>
-                )}
               </>
             )}
           </SLink>

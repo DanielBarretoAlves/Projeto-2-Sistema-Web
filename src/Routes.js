@@ -1,15 +1,13 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
-import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
 
 const Routes = () => {
   return (
     <Switch>
       <Route exact path='/home'>
-        <Layout>
-          <HomePage />
-        </Layout>
+        <Layout></Layout>
       </Route>
       <Route exact path='/duvidas'>
         <Layout>
@@ -32,7 +30,7 @@ const Routes = () => {
         </Layout>
       </Route>
       <Route exact path='/'>
-        <h1>Login Page</h1>
+        <LoginPage />
       </Route>
     </Switch>
   )
