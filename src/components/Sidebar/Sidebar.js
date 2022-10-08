@@ -54,11 +54,9 @@ const Sidebar = () => {
         </SLinkContainer>
       ))}
       <SDivider />
-      {secondaryLinksArray.map(({ icon, label }) => (
+      {secondaryLinksArray.map(({ icon, label, to }) => (
         <SLinkContainer key={label}>
-          <SLink
-            to='/login'
-            style={!sidebarOpen ? { width: `fit-content` } : {}}>
+          <SLink to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
             <SLinkIcon>{icon}</SLinkIcon>
             {sidebarOpen && <SLinkLabel>{label}</SLinkLabel>}
           </SLink>
@@ -95,6 +93,7 @@ const secondaryLinksArray = [
   {
     label: 'Sair',
     icon: <MdLogout />,
+    to: '/',
   },
 ]
 

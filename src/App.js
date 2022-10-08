@@ -25,11 +25,7 @@ const App = () => {
             rel='stylesheet'
           />
         </Helmet>
-        <>
-          <Layout>
-            <Routes />
-          </Layout>
-        </>
+        <Routes />
       </ThemeProvider>
     </ThemeContext.Provider>
   )
