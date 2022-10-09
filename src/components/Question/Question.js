@@ -8,6 +8,7 @@ const Question = () => {
           <input type="text"></input>
           <p>Dúvida:</p>
           <textarea></textarea>
+          <button type="submit">Enviar</button>
 
         </form>
       </div>
