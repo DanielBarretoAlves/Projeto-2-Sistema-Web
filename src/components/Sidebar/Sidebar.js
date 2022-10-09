@@ -63,7 +63,7 @@ const linksArray = [
   {
     label: 'Duvidas',
     icon: <MdOutlineMailOutline />,
-    to: '/duvidas',
+    to: '/questions',
   },
   {
     label: 'Materias',

@@ -3,7 +3,7 @@ import Question from '../components/Question/Question'
 
 function QuestionPage(){
     return(
-        <><Question/></>
+        <Question/>
     )
 }
 
