@@ -1,27 +1,31 @@
+import {TextArea, Card } from './styles'
+
 const Question = () => {
   return (
     <>
-      <h2>Nome do Usuario</h2>
-      <div class="questions">
-        <form>
-          <p>Titulo:</p>
-          <input type="text"></input>
-          <p>Dúvida:</p>
-          <textarea></textarea>
-          <button type="submit">Enviar</button>
+     
+        <h2>Nome do Usuario</h2>
+        <Card class="questions">
+          <form>
+            <p>Titulo:</p>
+            <input type="text"></input>
+            <p>Dúvida:</p>
+            <TextArea></TextArea>
+            <button type="submit">Enviar</button>
 
-        </form>
-      </div>
+          </form>
+        </Card>
 
-      <div class="answers">
-        <ul>
-          
-          <li>Vai ter um card aqui com titulo + Contudo</li>
-          <li>Vai ter um card aqui com titulo + Contudo</li>
-          <li>Vai ter um card aqui com titulo + Contudo</li>
+        <Card class="answers">
+          <ul>
 
-        </ul>
-      </div>
+            <li>Vai ter um card aqui com titulo + Contudo</li>
+            <li>Vai ter um card aqui com titulo + Contudo</li>
+            <li>Vai ter um card aqui com titulo + Contudo</li>
+
+          </ul>
+        </Card>
+
     </>
 
   )
