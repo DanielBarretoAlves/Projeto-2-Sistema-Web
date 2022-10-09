@@ -1,12 +1,15 @@
 const Question = () => {
   return (
     <>
-      <h2>Teste</h2>
+      <h2>Nome do Usuario</h2>
       <div class="questions">
-        <b>Titulo</b>
-        <input type="text"></input>
-        <b>Informe sua Duvida</b>
-        <input type="textArea"></input>
+        <form>
+          <p>Titulo:</p>
+          <input type="text"></input>
+          <p>Dúvida:</p>
+          <textarea></textarea>
+
+        </form>
       </div>
 
       <div class="answers">
