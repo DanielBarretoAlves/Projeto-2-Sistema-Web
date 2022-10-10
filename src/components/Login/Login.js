@@ -1,9 +1,16 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import { GlobalStyle, Wrapper, Form, Input, Button, Title, Label } from './styles'
+import {
+  GlobalStyle,
+  Wrapper,
+  Form,
+  Input,
+  Button,
+  Title,
+  Label,
+} from './styles'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
-import HomePage from '../../pages/HomePage'
 
 function Login() {
   const [email, setEmail] = useState('')
@@ -15,7 +22,7 @@ function Login() {
     console.log({ email, senha })
     // TODO: Chamada para rota de auth da API.
     if (senha === '123') {
-      history.push('/duvidas')
+      history.push('/home')
     } else {
       NotificationManager.error('Email ou Senha inválida')
     }
