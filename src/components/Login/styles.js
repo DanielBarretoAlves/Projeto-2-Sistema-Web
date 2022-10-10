@@ -15,6 +15,12 @@ export const Wrapper = styled.section`
   width: 100%;
 `
 
+export const Label = styled.b`
+  margin-bottom:20px;
+  color: ${darkTheme.text};
+`
+
+
 export const Form = styled.form`
   margin: 0 auto;
   width: 100%;

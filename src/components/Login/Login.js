@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import { GlobalStyle, Wrapper, Form, Input, Button, Title } from './styles'
+import { GlobalStyle, Wrapper, Form, Input, Button, Title, Label } from './styles'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 import HomePage from '../../pages/HomePage'
 
@@ -27,6 +27,7 @@ function Login() {
       <Wrapper>
         <Form onSubmit={handleSubmit}>
           <Title>Online Booster</Title>
+          <Label>Email</Label>
           <Input
             type='email'
             name='email'
@@ -35,6 +36,7 @@ function Login() {
               setEmail(e.target.value)
             }}
           />
+          <Label>Password</Label>
           <Input
             type='password'
             name='password'

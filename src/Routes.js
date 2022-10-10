@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import MatterPage from './pages/MatterPage'
 import AddMatterPage from './pages/AddMatterPage'
+import QuestionPage from './pages/QuestionPage'
 
 const Routes = () => {
   return (
@@ -14,9 +15,9 @@ const Routes = () => {
           <HomePage />
         </Layout>
       </Route>
-      <Route exact path='/duvidas'>
+      <Route exact path='/questions'>
         <Layout>
-          <h1>Duvidas Page</h1>
+          <QuestionPage />
         </Layout>
       </Route>
       <Route exact path='/matters'>
