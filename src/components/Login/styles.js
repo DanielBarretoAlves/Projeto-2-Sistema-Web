@@ -8,18 +8,14 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const Wrapper = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
   width: 100%;
 `
 
 export const Label = styled.b`
-  margin-bottom:20px;
+  margin-bottom: 20px;
   color: ${darkTheme.text};
 `
-
 
 export const Form = styled.form`
   margin: 0 auto;
