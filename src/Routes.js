@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
+import MatterPage from './pages/MatterPage'
+import AddMatterPage from './pages/AddMatterPage'
 
 const Routes = () => {
   return (
@@ -17,9 +19,14 @@ const Routes = () => {
           <h1>Duvidas Page</h1>
         </Layout>
       </Route>
-      <Route exact path='/materias'>
+      <Route exact path='/matters'>
         <Layout>
-          <h1>Materias Page</h1>
+          <MatterPage />
+        </Layout>
+      </Route>
+      <Route exact path='/addMatter'>
+        <Layout>
+          <AddMatterPage />
         </Layout>
       </Route>
       <Route exact path='/testes'>

@@ -68,7 +68,7 @@ const linksArray = [
   {
     label: 'Materias',
     icon: <MdLibraryBooks />,
-    to: '/materias',
+    to: '/matters',
   },
   {
     label: 'Testes',

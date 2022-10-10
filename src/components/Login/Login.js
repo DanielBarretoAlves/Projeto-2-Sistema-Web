@@ -15,7 +15,7 @@ function Login() {
     console.log({ email, senha })
     // TODO: Chamada para rota de auth da API.
     if (senha === '123') {
-      history.push('/home')
+      history.push('/duvidas')
     } else {
       NotificationManager.error('Email ou Senha inválida')
     }
