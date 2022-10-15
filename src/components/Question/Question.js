@@ -30,7 +30,7 @@ const Question = () => {
           <input type="text" id="title"></input>
           <p id="test">Dúvida:</p>
           <TextArea id="contentBody"></TextArea>
-          <button onclick={"getQuestion()"} type="submit">Enviar</button>
+          <button onclick={getQuestion} type="submit">Enviar</button>
 
 
 
