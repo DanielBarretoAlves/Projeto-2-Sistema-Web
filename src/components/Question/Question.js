@@ -6,9 +6,8 @@ const questionList = '{"title":"Problema de Matematica", "contentBody":"Preciso 
 
 
 function getQuestion() {
-  var title = document.getElementById("title").value
-  document.getElementById("test").innerHTML = "whatever";
-  alert("title")
+  // var title = document.getElementById("title").value
+  alert("teste")
 }
 
 
@@ -30,7 +29,7 @@ const Question = () => {
           <input type="text" id="title"></input>
           <p id="test">Dúvida:</p>
           <TextArea id="contentBody"></TextArea>
-          <button onclick={getQuestion} type="submit">Enviar</button>
+          <button onclick={getQuestion()} type="submit">Enviar</button>
 
 
 
