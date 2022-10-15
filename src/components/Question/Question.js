@@ -1,12 +1,18 @@
 import {TextArea, Card } from './styles'
 
-addQuestion(textTitle, textBody)
+
+// criar JSON
+const questionList = '{"title":"Problema de Matematica", "contentBody":"Preciso de aprender a fazer calculo fatorial"}'
+
+
+function newQuestion(textTitle, textBody)
 {
-  const content = {
-    title : textTitle,
-    contentBody : textBody
-  }
+  const obj = JSON.parse(questionList);
+  obj.push({title:textTitle, contentBody:textBody})
 }
+
+
+
 
 const Question = () => {
   return (
