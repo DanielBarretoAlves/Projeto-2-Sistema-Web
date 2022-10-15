@@ -1,5 +1,13 @@
 import {TextArea, Card } from './styles'
 
+addQuestion(textTitle, textBody)
+{
+  const content = {
+    title : textTitle,
+    contentBody : textBody
+  }
+}
+
 const Question = () => {
   return (
     <>
