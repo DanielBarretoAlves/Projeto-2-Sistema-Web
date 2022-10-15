@@ -25,7 +25,7 @@ const Question = () => {
         </Card>
 
         <Card class="answers">
-          <ul>
+          <ul id="contentList">
 
             <li><div>Vai ter um card aqui com titulo + Contudo</div></li>
             <li><div>Vai ter um card aqui com titulo + Contudo</div></li>
