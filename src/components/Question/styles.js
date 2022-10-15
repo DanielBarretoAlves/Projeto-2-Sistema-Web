@@ -19,7 +19,13 @@ export const TextArea = styled.input`
 `
 
 export const Card = styled.div`
-display: flex;
-background:red;
+
+background:white;
+border-radius:15px;
+color:black;
+margin:10px;
+margin-left:50%;
+margin-right:50%;
 width: 100%;
+padding:40px;
 `

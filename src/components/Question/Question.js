@@ -19,9 +19,9 @@ const Question = () => {
         <Card class="answers">
           <ul>
 
-            <li>Vai ter um card aqui com titulo + Contudo</li>
-            <li>Vai ter um card aqui com titulo + Contudo</li>
-            <li>Vai ter um card aqui com titulo + Contudo</li>
+            <li><div>Vai ter um card aqui com titulo + Contudo</div></li>
+            <li><div>Vai ter um card aqui com titulo + Contudo</div></li>
+            <li><div>Vai ter um card aqui com titulo + Contudo</div></li>
 
           </ul>
         </Card>
