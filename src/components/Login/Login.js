@@ -11,6 +11,7 @@ import {
   Label,
 } from './styles'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
+import axios from 'axios'
 
 function Login() {
   const [email, setEmail] = useState('')
@@ -19,13 +20,23 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log({ email, senha })
-    // TODO: Chamada para rota de auth da API.
-    if (senha === '123') {
-      history.push('/home')
-    } else {
-      NotificationManager.error('Email ou Senha inválida')
-    }
+    axios
+      .post('http://127.0.0.1:5000/login', {
+        email: email,
+        senha: senha,
+      })
+      .then(function (response) {
+        if (response.data.statusCode !== 200) {
+          NotificationManager.error(response.data.body.message)
+        }
+        if (response.data.statusCode === 200) {
+          localStorage.setItem('user_id', response.data.body.data.user_id)
+          history.push(`/home`)
+        }
+      })
+      .catch(function (error) {
+        console.error(error)
+      })
   }
 
   return (

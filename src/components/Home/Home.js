@@ -1,7 +1,11 @@
 import React from 'react'
 
 const Home = () => {
-  return <h1>teste</h1>
+  return (
+    <>
+      <h1>{localStorage.getItem('user_id')}</h1>
+    </>
+  )
 }
 
 export default Home

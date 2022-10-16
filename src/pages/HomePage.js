@@ -1,9 +1,10 @@
 import React from 'react'
+import Home from '../components/Home/Home'
 
 function HomePage() {
   return (
     <>
-      <p>Bem Vindo!</p>
+      <Home />
     </>
   )
 }

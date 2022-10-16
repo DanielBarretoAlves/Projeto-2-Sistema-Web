@@ -10,32 +10,32 @@ import QuestionPage from './pages/QuestionPage'
 const Routes = () => {
   return (
     <Switch>
-      <Route exact path='/home'>
+      <Route path='/home'>
         <Layout>
           <HomePage />
         </Layout>
       </Route>
-      <Route exact path='/questions'>
+      <Route path='/questions'>
         <Layout>
           <QuestionPage />
         </Layout>
       </Route>
-      <Route exact path='/matters'>
+      <Route path='/matters'>
         <Layout>
           <MatterPage />
         </Layout>
       </Route>
-      <Route exact path='/addMatter'>
+      <Route path='/addMatter'>
         <Layout>
           <AddMatterPage />
         </Layout>
       </Route>
-      <Route exact path='/testes'>
+      <Route path='/testes'>
         <Layout>
           <h1>Testes Page</h1>
         </Layout>
       </Route>
-      <Route exact path='/reforco'>
+      <Route path='/reforco'>
         <Layout>
           <h1>Reforço Page</h1>
         </Layout>
