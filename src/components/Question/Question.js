@@ -26,7 +26,7 @@ const Question = () => {
   const [title, setTitle] = useState("")
   const [question, setQuestion] = useState("")
 
-  const myJSON = { id: "1", name: "teste", materias: ["Matematica", "Programação"], duvidas:[{"titulo":"duvida em Python", conteudo:"como ler json em python", resposta:"", idDuvida:"12312423412"}] };
+  const myJSON = {usuarios:[{"id":"1", "name":"teste", "materias":["Matematica", "Programação"], duvidas:[{"titulo":"duvida em Python", conteudo:"como ler json em python", resposta:"", idDuvida:"12312423412"}]}]};
   function getQuestion(e) {
     // var title = document.getElementById("title").value
     e.preventDefault();
@@ -45,7 +45,7 @@ const Question = () => {
     const node = document.createElement("li");
 
     const para = document.createElement("li");
-    para.innerHTML = "<div id=" + myJSON.duvidas[0].idDuvida + ">" +"<h2>"+ myJSON.duvidas[0].titulo + "</h2> <br/> " + myJSON.duvidas[0].conteudo + "</div>";
+    para.innerHTML = "<div id=" + myJSON.usuarios[0].duvidas[0].idDuvida + ">" +"<h2>"+ myJSON.usuarios[0].duvidas[0].titulo + "</h2> <br/> " + myJSON.usuarios[0].duvidas[0].conteudo + "</div>";
     document.getElementById("contentList").appendChild(para);
   }
 
