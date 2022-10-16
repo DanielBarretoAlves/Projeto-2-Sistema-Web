@@ -60,8 +60,8 @@ export default function MatterTable() {
         </AddMatterButton>
         <Table>
           <TableTr>
-            <TableTd>Materias</TableTd>
-            <TableTd>Ações</TableTd>
+            <th>Materias</th>
+            <th>Ações</th>
           </TableTr>
 
           {matter.map((materia) => (

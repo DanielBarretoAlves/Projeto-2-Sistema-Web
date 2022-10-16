@@ -1,86 +1,80 @@
-import { TextArea, Card } from './styles'
-import { useState } from 'react'
-import { NoMeetingRoom } from '@material-ui/icons'
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import {
+  Wrapper,
+  AddMatterButton,
+  DeleteMatterButton,
+  Table,
+  TableTd,
+  TableTr,
+} from './styles'
 
+export default function Question() {
+  const [duvidas, setDuvidas] = useState([])
+  const history = useHistory()
 
-// const questionList = '{"title":"Problema de Matematica", "contentBody":"Preciso de aprender a fazer calculo fatorial"}'
+  useEffect(() => {
+    setTimeout(function () {
+      axios
+        .get(`http://127.0.0.1:5000/user?id=${localStorage.getItem('user_id')}`)
+        .then(function (response) {
+          setDuvidas(response.data.body.user.duvidas)
+        })
+        .catch(function (error) {
+          console.error(error)
+        })
+    }, 1000)
+  }, [duvidas])
 
-
-
-// TODO: passar user ID e receber lista de duvidas do USER.
-
-// TODO: Cadastrar duvida no USER
-
-
-
-
-// id,nome,materia,titulo, conteudo, resposta, idDuvida
-
-
-
-
-
-
-
-const Question = () => {
-  const [title, setTitle] = useState("")
-  const [question, setQuestion] = useState("")
-
-  const myJSON = {usuarios:[{"id":"1", "name":"teste", "materias":["Matematica", "Programação"], duvidas:[{"titulo":"duvida em Python", conteudo:"como ler json em python", resposta:"", idDuvida:"12312423412"}]}]};
-  function getQuestion(e) {
-    // var title = document.getElementById("title").value
-    e.preventDefault();
-    console.log(title, question)
-    refreshList();
-
+  const deletarDuvida = (duvida_id) => {
+    console.log(duvida_id)
+    axios
+      .delete(
+        `http://127.0.0.1:5000/duvida?id=${localStorage.getItem(
+          'user_id'
+        )}&id_duvida=${duvida_id}`
+      )
+      .then(function (response) {
+        console.log(response)
+        // setDuvidas(response.data.body.user.duvidas)
+      })
+      .catch(function (error) {
+        console.error(error)
+      })
   }
-
-
-  // TODO: Função de refresh
-  function refreshList() {
-
-    const myNode = document.getElementById("contentList");
-    myNode.textContent = '';
-
-    const node = document.createElement("li");
-
-    const para = document.createElement("li");
-    para.innerHTML = "<div id=" + myJSON.usuarios[0].duvidas[0].idDuvida + ">" +"<h2>"+ myJSON.usuarios[0].duvidas[0].titulo + "</h2> <br/> " + myJSON.usuarios[0].duvidas[0].conteudo + "</div>";
-    document.getElementById("contentList").appendChild(para);
-  }
-
 
   return (
     <>
-
-      <h2>Nome do Usuario</h2>
-      <Card className="questions">
-        <form onSubmit={getQuestion}>
-          <p>Titulo:</p>
-          <input onChange={(e) => { setTitle(e.target.value) }}></input>
-
-          <p>Dúvida:</p>
-          <TextArea onChange={(e) => { setQuestion(e.target.value) }}></TextArea>
-          <button>Enviar</button>
-
-        </form>
-      </Card>
-
-      <Card className="answers">
-        <ul id="contentList">
-
-          <li><div id="randomCode">Vai ter um card aqui com titulo + Contudo</div></li>
-          <li><div>Vai ter um card aqui com titulo + Contudo</div></li>
-          <li><div>Vai ter um card aqui com titulo + Contudo</div></li>
-
-        </ul>
-      </Card>
-
+      <Wrapper>
+        <AddMatterButton onClick={() => history.push('/addQuestion')}>
+          Adicionar
+        </AddMatterButton>
+        <Table>
+          <TableTr>
+            <th>Duvidas</th>
+            <th>Materia</th>
+            <th>Respostas</th>
+            <th>Ações</th>
+          </TableTr>
+          {duvidas.map((duvida) => (
+            <TableTr key={duvida.id_duvida}>
+              <TableTd>{duvida.pergunta}</TableTd>
+              <TableTd>{duvida.materia}</TableTd>
+              <TableTd>{duvida.resposta}</TableTd>
+              <TableTd>
+                <DeleteMatterButton
+                  onClick={() => {
+                    console.log(duvida)
+                    deletarDuvida(duvida.id_duvida)
+                  }}>
+                  Deletar
+                </DeleteMatterButton>
+              </TableTd>
+            </TableTr>
+          ))}
+        </Table>
+      </Wrapper>
     </>
-
   )
-
-
 }
-
-export default Question
