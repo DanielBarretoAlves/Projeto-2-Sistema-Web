@@ -8,44 +8,48 @@ import {
   TableTd,
   TableTr,
 } from './styles'
+import axios from 'axios'
 
 export default function MatterTable() {
   const history = useHistory()
   const [matter, setMatter] = useState([])
   useEffect(() => {
-    MatterGet()
-  }, [])
+    const id = localStorage.getItem('user_id')
 
-  const MatterGet = () => {
-    // TODO: Mudar a api depois para a nossa api para pegar as materias
+    setTimeout(function () {
+      axios
+        .get(`http://127.0.0.1:5000/user?id=${id}`)
+        .then(function (response) {
+          setMatter(response.data.body.user.materias)
+        })
+        .catch(function (error) {
+          console.error(error)
+        })
+    }, 1000)
+  }, [matter])
 
-    fetch('https://www.mecallapi.com/api/users')
-      .then((res) => res.json())
-      .then((result) => {
-        setMatter(result)
-      })
-  }
-
-  const MatterDelete = (id) => {
-    var data = {
-      id: id,
-    }
+  const MatterDelete = (materia) => {
     // TODO: Mudar a api depois para a nossa api para deletar as materias
+    const id = localStorage.getItem('user_id')
+    const newArray = []
 
-    fetch('https://www.mecallapi.com/api/users/delete', {
-      method: 'DELETE',
-      headers: {
-        Accept: 'application/form-data',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+    matter.map((mat) => {
+      if (mat !== materia) {
+        newArray.push(mat)
+      }
     })
-      .then((res) => res.json())
-      .then((result) => {
-        alert(result['message'])
-        if (result['status'] === 'ok') {
-          MatterGet()
-        }
+
+    axios
+      .put(`http://127.0.0.1:5000/materias`, {
+        id: id,
+        materias: newArray,
+      })
+      .then(function (response) {
+        console.log(response)
+        setMatter(response.data.body.user.materias)
+      })
+      .catch(function (error) {
+        console.error(error)
       })
   }
   return (
@@ -56,17 +60,15 @@ export default function MatterTable() {
         </AddMatterButton>
         <Table>
           <TableTr>
-            <TableTd>Ids</TableTd>
             <TableTd>Materias</TableTd>
             <TableTd>Ações</TableTd>
           </TableTr>
 
           {matter.map((materia) => (
             <TableTr>
-              <TableTd>{materia.id}</TableTd>
-              <TableTd>{materia.username}</TableTd>
+              <TableTd>{materia}</TableTd>
               <TableTd>
-                <DeleteMatterButton onClick={() => MatterDelete(materia.id)}>
+                <DeleteMatterButton onClick={() => MatterDelete(materia)}>
                   Deletar
                 </DeleteMatterButton>
               </TableTd>

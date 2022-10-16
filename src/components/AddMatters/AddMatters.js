@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import Button from '@material-ui/core/Button'
-import { v4 as uuidv4 } from 'uuid'
 import Multiselect from 'multiselect-react-dropdown'
 import { Wrapper, Form, AddMatterButton } from './styles'
 import { darkTheme } from '../../styles/theme'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 function AddMatters() {
   const [matters, setMatters] = useState([])
+  const history = useHistory()
+
+  const materias = [
+    'Português',
+    'Matemática',
+    'História',
+    'Geografia',
+    'Física',
+    'Química',
+    'Inglês',
+  ]
   const style = {
     option: {
       // To change css for dropdown options
@@ -17,43 +28,35 @@ function AddMatters() {
       background: darkTheme.bg3,
     },
   }
+  const id = localStorage.getItem('user_id')
 
-  // useEffect(() => {
-  //   MatterGet()
-  // }, [])
-
-  // const MatterGet = () => {
-  //   // TODO: Mudar a api depois para a nossa api para pegar as materias
-
-  //   fetch('https://www.mecallapi.com/api/users')
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       setMatters(result)
-  //     })
-  // }
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:5000/user?id=${id}`)
+      .then(function (response) {
+        setMatters(response.data.body.user.materias)
+      })
+      .catch(function (error) {
+        console.error(error)
+      })
+  }, [])
 
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log(matters)
-    // var data = {
-    //   id: uuidv4(),
-    //   matters: matters,
-    // }
-    // fetch('https://www.mecallapi.com/api/users/create', {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/form-data',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     alert(result['message'])
-    //     if (result['status'] === 'ok') {
-    //       window.location.href = '/'
-    //     }
-    //   })
+    axios
+      .put(`http://127.0.0.1:5000/materias`, {
+        id: id,
+        materias: matters,
+      })
+      .then(function (response) {
+        console.log(response)
+        setMatters(response.data.body.materias)
+        history.push('/matters')
+      })
+      .catch(function (error) {
+        console.error(error)
+      })
   }
   return (
     <Wrapper>
@@ -67,15 +70,7 @@ function AddMatters() {
           onSelect={(e) => {
             setMatters(e)
           }}
-          options={[
-            'Português',
-            'Matemática',
-            'História',
-            'Geografia',
-            'Física',
-            'Química',
-            'Inglês',
-          ]}
+          options={materias}
           style={style}
         />
         <AddMatterButton
